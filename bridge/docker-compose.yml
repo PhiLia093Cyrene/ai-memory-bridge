@@ -1,0 +1,44 @@
+version: "3.8"
+
+# cyrene-bridge - 多端 AI agent 记忆共享桥接网关
+# 接收来自桌面端 / IM bot / 其他 agent 的推送,落 JSONL,可选同步到下游 LivingMemory
+
+services:
+  cyrene-bridge:
+    build: .
+    container_name: cyrene-bridge
+    restart: unless-stopped
+    ports:
+      - "${BRIDGE_PORT:-18800}:8000"
+    env_file:
+      - .env
+    environment:
+      # LivingMemory 同步配置(如果不用 sync 端点,下面 3 行可以删掉)
+      LIVINGMEMORY_DB_PATH: /app/livingmemory-data/livingmemory.db
+      LIVINGMEMORY_SYNC_PERSONA: ${LIVINGMEMORY_SYNC_PERSONA:-default}
+      LIVINGMEMORY_SYNC_SESSION: ${LIVINGMEMORY_SYNC_SESSION:-cyrene-bridge}
+    volumes:
+      - ./data:/app/data
+      # 可选:挂载下游 LivingMemory DB(同机部署时)
+      # 把 <你的 livingmemory.db 路径> 换成实际路径,例如:
+      #   /opt/astrbot/data/plugin_data/astrbot_plugin_livingmemory:/app/livingmemory-data:rw
+      - ${LIVINGMEMORY_HOST_PATH:-./placeholder}:/app/livingmemory-data:rw
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/v1/health', timeout=3)"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+# 部署:
+# 1. cp .env.example .env,填好 BRIDGE_AUTH_TOKEN / EMBEDDING_API_KEY
+# 2. (可选)把 LIVINGMEMORY_HOST_PATH 设为你机器上 livingmemory.db 的实际路径
+# 3. BRIDGE_WRITE_ENABLED=true 之后再启动(默认 false 防误写)
+# 4. docker compose up -d
+# 5. docker logs -f cyrene-bridge
+# 6. curl http://localhost:18800/v1/health

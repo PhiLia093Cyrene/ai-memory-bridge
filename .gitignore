@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.eggs/
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+
+# Virtual env
+venv/
+env/
+.venv/
+ENV/
+
+# Distribution
+build/
+dist/
+*.egg
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Env / secrets
+.env
+.env.local
+.env.*.local
+*.env
+
+# Runtime data
+*.log
+*.pid
+*.sock
+data/
+!data/.gitkeep
+bridge/data/
+daemon/data/
+
+# OS
+Thumbs.db
+
+# Backup files
+*.bak
+*.tmp
+*.orig
