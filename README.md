@@ -133,6 +133,23 @@ PR 欢迎,issues 优先([模板](https://github.com/PhiLia093Cyrene/ai-memory-br
 
 **MIT** - 自由使用、修改、商用,保留版权声明即可。如果想换协议,直接改 LICENSE 文件。
 
+
+
+## 🔗 相关项目
+
+- [**Cyrene-Agent**](https://github.com/Playa-0v0/Cyrene-Agent) — 配套的多模态 AI agent 桌面框架(本项目是它的跨端记忆 companion 工具)
+- [**AstrBot**](https://github.com/Soulter/AstrBot) — QQ bot 框架,本项目用 daemon 监控其 LivingMemory 数据库
+- 你的项目也用了 cyrene-bridge?[在这条 discussion 里登记](https://github.com/PhiLia093Cyrene/ai-memory-bridge/discussions) → 我会加到这个 README 的 Showcase 段
+
+## 🌟 案例 / Showcase
+
+_还没有人提交。先开个头 — 如果你部署了 cyrene-bridge 并愿意分享,到 [Discussions](https://github.com/PhiLia093Cyrene/ai-memory-bridge/discussions) 写一句:_ `_我在用 cyrene-bridge,接的是 <什么端> → <什么端>,感觉 <怎样>_`
+
+## 💬 支持 / Support
+
+- 报 bug / 提功能 → [Issues](https://github.com/PhiLia093Cyrene/ai-memory-bridge/issues/new/choose)
+- 闲聊 / 路线图讨论 → [Discussions](https://github.com/PhiLia093Cyrene/ai-memory-bridge/discussions)
+- Email → 看 [Cyrene-Agent 作者 B 站主页](https://space.bilibili.com/160670644) 私信
 ## 🙏 致谢
 
 - 配套项目:[**Cyrene-Agent**](https://github.com/Playa-0v0/Cyrene-Agent) — 多模态 AI agent 桌面框架,本项目是它的跨端记忆 companion 工具
