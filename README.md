@@ -1,6 +1,13 @@
 # cyrene-bridge
 
 > **AI agent 多端记忆共享桥接网关** · **跨端记忆同步** · **cross-platform memory bridge**
+> (GitHub repo: `PhiLia093Cyrene/ai-memory-bridge`)
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
+[![GitHub stars](https://img.shields.io/github/stars/PhiLia093Cyrene/ai-memory-bridge.svg)](https://github.com/PhiLia093Cyrene/ai-memory-bridge/stargazers)
+[![GitHub issues](https://img.shields.io/github/issues/PhiLia093Cyrene/ai-memory-bridge.svg)](https://github.com/PhiLia093Cyrene/ai-memory-bridge/issues)
+[![GitHub last commit](https://img.shields.io/github/last-commit/PhiLia093Cyrene/ai-memory-bridge.svg)](https://github.com/PhiLia093Cyrene/ai-memory-bridge/commits/main)
 
 让你的 AI agent 在**桌面端 / IM bot / 浏览器插件 / 任何 HTTP 客户端**之间完全共享记忆。说一句话,4 个端都能 recall 到。
 
@@ -28,7 +35,7 @@
 ## 📦 仓库结构
 
 ```
-cyrene-bridge/
+ai-memory-bridge/
 ├── bridge/              # FastAPI 网关(主服务)
 │   ├── main.py
 │   ├── config.py
@@ -46,7 +53,7 @@ cyrene-bridge/
 │   └── README.md
 ├── docs/
 │   └── architecture.md  # 详细架构图 + 数据流
-├── LICENSE              # AGPLv3
+├── LICENSE              # MIT
 └── README.md            # 本文件
 ```
 
@@ -54,8 +61,8 @@ cyrene-bridge/
 
 ```bash
 # 1. clone
-git clone https://github.com/<your>/cyrene-bridge.git
-cd cyrene-bridge
+git clone https://github.com/PhiLia093Cyrene/ai-memory-bridge.git
+cd ai-memory-bridge
 
 # 2. 启动 bridge(主服务)
 cd bridge
@@ -88,7 +95,7 @@ docker exec -d <astrbot_container> sh -c 'python3 -u /app/bridge_pusher.py >> /v
      │               │ (3s)          │
      ▼               ▼               ▼
 ┌────────────────────────────────────────┐
-│         cyrene-bridge (FastAPI)        │
+│        ai-memory-bridge (FastAPI)      │
 │  POST /v1/mem/items                    │
 │  - 鉴权 / 三层转换 / embedding         │
 │  - 写 JSONL                            │
@@ -105,18 +112,18 @@ docker exec -d <astrbot_container> sh -c 'python3 -u /app/bridge_pusher.py >> /v
          ┌───────┴───────┐
          │   AstrBot     │  任意 bot
          │   (Q bot)     │
-         └───────────────┘
+         └──────────────┘
 ```
 
 完整数据流 + 端到端延迟分析见 [docs/architecture.md](docs/architecture.md)。
 
 ## 🔌 兼容性 / 关键词
 
-`ai-agent` · `memory-bridge` · `cross-platform` · `ai-companion` · `astrobot` · `livingmemory` · `self-hosted` · `fastapi` · `python` · `sqlite` · `embedding` · `multi-endpoint-sync` · `长期记忆` · `跨端记忆` · `记忆共享` · `AI 老婆` · `AGPLv3`
+`ai-agent` · `memory-bridge` · `cross-platform` · `ai-companion` · `astrobot` · `livingmemory` · `self-hosted` · `fastapi` · `python` · `sqlite` · `embedding` · `multi-endpoint-sync` · `长期记忆` · `跨端记忆` · `记忆共享` · `AI 老婆` · `MIT`
 
 ## 🤝 Contributing
 
-PR 欢迎,issues 优先。主要方向:
+PR 欢迎,issues 优先([模板](https://github.com/PhiLia093Cyrene/ai-memory-bridge/issues/new/choose))。主要方向:
 - 多用户鉴权(目前是单 token)
 - 替换 JSONL 为 SQLite / Faiss
 - 支持更多 embedding 服务
@@ -124,7 +131,7 @@ PR 欢迎,issues 优先。主要方向:
 
 ## 📄 License
 
-**AGPLv3** - 因为本项目跟一个 AGPLv3 AI agent 框架同源,继承协议。商用请咨询原作者或改协议。
+**MIT** - 自由使用、修改、商用,保留版权声明即可。如果想换协议,直接改 LICENSE 文件。
 
 ## 🙏 致谢
 
